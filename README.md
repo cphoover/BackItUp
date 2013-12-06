@@ -59,10 +59,10 @@ Bash script for backing up linux files/directories using rsync over ssh
     BACKUP_EXPIRY="3d"
     
     # Prevents logging to stdout
-    SILENT="false"
+    SILENT=false
     
     # Prevents logging to syslog
-    LOGGING="true"
+    LOGGING=true
     
     ########################
     ## END CONFIGURATION  ##
