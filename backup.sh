@@ -47,7 +47,7 @@ log "CONFIGURATION:"
 
 info "REMOTE_USER: ${REMOTE_USER}"
 info "REMOTE_HOST: ${REMOTE_HOST}"
-info "REMOTE_LOCATION: ${REMOTE_LOCATION}"
+info "Synchronizing ${REMOTE_HOST}:${REMOTE_LOCATION}";
 info "DESTINATION: ${DESTINATION}"
 info "BACKUP_DIR: ${BACKUP_DIR}"
 
@@ -69,7 +69,7 @@ fi
 
 ## RSYNC PROD WEBROOT TO LOCAL
 log "Synchronization using Rsync over ssh";
-info "Synchronizing ${REMOTE_HOST}:${REMOTE_LOCATION}";
+info "Synchronizing $REMOTE_HOST:$REMOTE_LOCATION";
 info "With local: ${DESTINATION}"
 
 rsync --rsync-path="sudo rsync" -avz -e ssh $REMOTE_USER@$REMOTE_HOST:$REMOTE_LOCATION $DESTINATION; RSYNC_EXIT=$?
