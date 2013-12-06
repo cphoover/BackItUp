@@ -11,9 +11,9 @@
 # password auth over ssh should be disabled for this user for added protection
 ####
 
-REMOTE_USER=rsyncagent 
+REMOTE_USER="rsyncagent"
 
-REMOTE_HOST=changetomyhost.com
+REMOTE_HOST="changetomyhost.com"
 
 ####
 # A special care must be taken when specifying source path. Rsync will operate
@@ -31,27 +31,27 @@ REMOTE_HOST=changetomyhost.com
 # REMOTE_LOCATION="/var/www/vhosts/"
 # DESTINATION="./vhosts/"
 # whereas here
-# REMOTE_LOCATION="/var/www/vhosts
-# DESTINATION="./vhosts
+# REMOTE_LOCATION="/var/www/vhosts"
+# DESTINATION="./vhosts"
 # rsync will copy the folder itself and you end up with ./vhosts/vhosts
 ####
 
-REMOTE_LOCATION=/var/www/
-DESTINATION=./www/
-BACKUP_DIR=./backups
+REMOTE_LOCATION="/var/www/"
+DESTINATION="./www/"
+BACKUP_DIR="./backups"
 
 ####
 # to disable expiry set to false
 # format n[smhdw]
 ####
 
-BACKUP_EXPIRY=3d 
+BACKUP_EXPIRY="3d"
 
 # Prevents logging to stdout
-SILENT=false
+SILENT="false"
 
 # Prevents logging to syslog
-LOGGING=true
+LOGGING="true"
 
 ########################
 ## END CONFIGURATION  ##
