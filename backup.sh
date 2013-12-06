@@ -1,6 +1,6 @@
 #/bin/bash
 
-source ./config.sh
+CONFIG_PATH="$1"
 
 # define colors
 C_DEFAULT="\033[m"
@@ -13,17 +13,34 @@ function log(){
      $SILENT || echo -e $(printf "$msg" ${C_GREEN} ${C_DEFAULT});  
      $LOGGING && logger $(printf "$msg");
 }
+
 function error(){
      msg="BACKUP AGENT --- $(date +%s) --- ERROR --- %s$1%s"; 
      $SILENT || echo -e $(printf "$msg" ${C_RED} ${C_DEFAULT});  
      $LOGGING && logger $(printf "$msg");
 }
+
 function info(){
      msg="BACKUP AGENT --- $(date +%s) --- INFO --- %s$1%s"; 
      $SILENT || echo -e $(printf "$msg" ${C_YELLOW} ${C_DEFAULT});  
      $LOGGING && logger $(printf "$msg");
 }
 
+if [ -z "$CONFIG_PATH" ]; then
+    error "No config file specified exiting with error code: 1";
+    echo "Usage:";
+    echo -e "\tbackup.sh path/to/config.sh";
+    exit 1;
+fi
+
+CONFIG_FILE="$(basename $CONFIG_PATH)"
+CONFIG_DIR="$(dirname $CONFIG_PATH)"
+
+if [ -n $CONFIG_DIR ]; then
+    cd $CONFIG_DIR
+fi
+
+source $CONFIG_PATH
 
 log "Log: backup tool starting... ";
 log "CONFIGURATION:"
