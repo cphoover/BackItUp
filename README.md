@@ -7,7 +7,7 @@ Bash script for backing up linux files/directories using rsync over ssh
 # Usage
     > backup.sh path/to/config.sh
     
-## Config File Example    
+## Example Config File
 
 
     
